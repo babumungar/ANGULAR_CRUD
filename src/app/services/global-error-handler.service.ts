@@ -8,10 +8,14 @@ export class GlobalErrorHandlerService implements ErrorHandler {
 
   
   handleError(error: any): void {
-    console.error('An error occurred:', error);
+    console.error('error occurred handled globally:', error);
     //throw new Error('Method not implemented.');
     // if(error instanceof HttpErrorResponse){
     //   console.log('Response headers:', error.headers);
     // }
   }
+ /*  myErrorHandler(error: any): void{
+    console.log('error occurred handled globally:', error);
+  } */
+
 }

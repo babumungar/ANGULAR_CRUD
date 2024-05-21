@@ -7,18 +7,22 @@ import { AppComponent } from './app.component';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { EmployeeComponent } from './components/employee/employee.component';
-import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { AddUserComponent } from './components/add-user/add-user.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { AlphabetsOnlyValidatorDirective } from './vaidators/alphabets-only-validator.directive';
 import { GlobalErrorHandlerService } from './services/global-error-handler.service';
+import { DataComponentComponent } from './components/data-component/data-component.component';
+import { AddBookComponent } from './components/add-book/add-book.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeComponent,
-    AddEmployeeComponent,
+    AddUserComponent,
     HomePageComponent,
-    AlphabetsOnlyValidatorDirective
+    AlphabetsOnlyValidatorDirective,
+    DataComponentComponent,
+    AddBookComponent
 
   ],
   imports: [

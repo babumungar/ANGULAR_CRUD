@@ -1,0 +1,16 @@
+<div *ngIf="data$ | async as data; else loading">
+    <h1>Titles</h1>
+    <ul>
+      <li *ngFor="let item of data">{{ item.bookname }}</li>
+    </ul>
+  </div>
+  <ng-template #loading>Loading...</ng-template>
+
+
+  <!-- <div *ngIf="loading; else dataTemplate">Loading...</div>
+    <ng-template #dataTemplate>
+      <ul>
+        <h1>Titles</h1>
+        <li *ngFor="let item of data">{{ item.title }}</li>
+      </ul>
+    </ng-template> -->

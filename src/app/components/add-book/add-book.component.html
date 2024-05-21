@@ -1,0 +1,22 @@
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()" class="form-container">
+    <div class="form-group">
+        <label for="name">BookName:</label>
+        <input type="text" id="name" formControlName="bookName" >
+        <div *ngIf="bookForm.get('bookName')?.invalid && bookForm.get('bookName')?.touched" class="error-message">
+         
+          <div *ngIf="bookForm.get('bookName')?.errors?.['required']">Name is required.</div>
+           <div *ngIf="bookForm.get('bookName')?.errors?.['minlength']">Minimum length of 5 characters is required.</div> 
+          <div *ngIf="bookForm.get('bookName')?.errors?.['maxlength']">Maximum length of 20 characters is allowed.</div>
+         
+          <div *ngIf="bookForm.get('bookName')?.errors?.['BookNameValidator']">bookName already Exists.</div>
+        </div>
+    </div>
+    
+      
+      <div class="submit-button-container">
+        <button type="submit" [disabled]="bookForm.invalid" class="submit-button">Submit</button>
+      </div>
+
+      
+  </form>
+  

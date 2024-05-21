@@ -10,20 +10,43 @@ import { catchError } from 'rxjs/operators';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-  private baseUrl = "https://jsonplaceholder.typicode.com/posts";
-  //private baseUrl = "http://localhost:9090/booksproject/getAll"
-  employees: any;
+
+
+  //private baseUrl = "https://jsonplaceholder.typicode.com/posts";
+  private baseUrl = "http://localhost:9090/booksproject/getAl"
+  //private baseUrl = "http://localhost:9090/booksproject/getbyname/asd"
+
+
+  books: any;
   constructor(private router: Router, private http: HttpClient, private errorHandler: GlobalErrorHandlerService) { }
   ngOnInit(): void {
+    //this.performDivision();
+  }
+  performDivision(): void {
+    try {
+      const result = this.divide(10, 0);
+      console.log('Result:', result);
+    } catch (error) {
+      console.log('Error you got :', error);
+    }
+  }
 
+  divide(dividend: number, divisor: number): number {
+    if (divisor === 0) {
+      throw new Error('Division by zero');
+    }
+    return dividend / divisor;
   }
 
   addUser() {
-    this.router.navigate(['/add-employee']); // Adjust the route as necessary
+    this.router.navigate(['/add-user']); // Adjust the route as necessary
+  }
+  CreateBook() {
+    this.router.navigate(['/add-book']);
   }
 
   showData() {
-
+    this.router.navigate(['/data-component'])
     this.http.get(this.baseUrl).subscribe(
       // (data:any) => {
       //   console.log(data)
@@ -48,21 +71,22 @@ export class HomePageComponent implements OnInit {
     )
 
 
-    // this.http.get('https://jsonplaceholder.typicode.com/pots')
-    //   .pipe(
-    //     catchError((error) => {
-    //       console.log('An error occurred:', error);
-    //       // Optionally handle the error here, e.g., show an error message to the user
-    //        throw new Error("some thing wrong"); // Rethrow the error or return a default value
-    //     })
-    //   )
-    //   .subscribe((data) => {
-    //     this.employees = data;
-    //     console.log(this.employees);
-    //   });
+   /*  this.http.get('http://localhost:9090/booksproject/getAll')
+      .pipe(
+        catchError((error) => {
+          console.log('An error occurred:', error);
+          // Optionally handle the error here, e.g., show an error message to the user
+          throw new Error("some thing wrong"); // Rethrow the error or return a default value
+
+        })
+      )
+      .subscribe((data) => {
+        this.books = data;
+        console.log(this.books);
+      });
+ */
 
 
-    //this.router.navigate(['/show-employees']); // Adjust the route as necessary
 
   }
 
